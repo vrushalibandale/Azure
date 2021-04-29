@@ -1,0 +1,784 @@
+{
+	"name": "pipeline1",
+	"properties": {
+		"activities": [
+			{
+				"name": "Lookup1",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "JsonSource",
+						"storeSettings": {
+							"type": "AzureDataLakeStoreReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "JsonReadSettings"
+						}
+					},
+					"dataset": {
+						"referenceName": "Sales_demo",
+						"type": "DatasetReference"
+					},
+					"firstRowOnly": false
+				}
+			},
+			{
+				"name": "ForEach1",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "Lookup1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('Lookup1').output.value",
+						"type": "Expression"
+					},
+					"isSequential": true,
+					"activities": [
+						{
+							"name": "Switch1",
+							"type": "Switch",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"on": {
+									"value": "@item().name",
+									"type": "Expression"
+								},
+								"cases": [
+									{
+										"value": "Case1",
+										"activities": [
+											{
+												"name": "Copy CSV_CSV",
+												"type": "Copy",
+												"dependsOn": [],
+												"policy": {
+													"timeout": "7.00:00:00",
+													"retry": 0,
+													"retryIntervalInSeconds": 30,
+													"secureOutput": false,
+													"secureInput": false
+												},
+												"userProperties": [],
+												"typeProperties": {
+													"source": {
+														"type": "DelimitedTextSource",
+														"storeSettings": {
+															"type": "AzureDataLakeStoreReadSettings",
+															"recursive": true,
+															"enablePartitionDiscovery": false
+														},
+														"formatSettings": {
+															"type": "DelimitedTextReadSettings"
+														}
+													},
+													"sink": {
+														"type": "DelimitedTextSink",
+														"storeSettings": {
+															"type": "AzureDataLakeStoreWriteSettings"
+														},
+														"formatSettings": {
+															"type": "DelimitedTextWriteSettings",
+															"quoteAllText": true,
+															"fileExtension": ".txt"
+														}
+													},
+													"enableStaging": false,
+													"translator": {
+														"type": "TabularTranslator",
+														"mappings": [
+															{
+																"source": {
+																	"name": "Region",
+																	"type": "String",
+																	"physicalType": "String"
+																},
+																"sink": {
+																	"name": "Region",
+																	"type": "String",
+																	"physicalType": "String"
+																}
+															},
+															{
+																"source": {
+																	"name": "Country",
+																	"type": "String",
+																	"physicalType": "String"
+																},
+																"sink": {
+																	"name": "Country",
+																	"type": "String",
+																	"physicalType": "String"
+																}
+															},
+															{
+																"source": {
+																	"name": "Item Type",
+																	"type": "String",
+																	"physicalType": "String"
+																},
+																"sink": {
+																	"name": "Item Type",
+																	"type": "String",
+																	"physicalType": "String"
+																}
+															},
+															{
+																"source": {
+																	"name": "Sales Channel",
+																	"type": "String",
+																	"physicalType": "String"
+																},
+																"sink": {
+																	"name": "Sales Channel",
+																	"type": "String",
+																	"physicalType": "String"
+																}
+															},
+															{
+																"source": {
+																	"name": "Order Priority",
+																	"type": "String",
+																	"physicalType": "String"
+																},
+																"sink": {
+																	"name": "Order Priority",
+																	"type": "String",
+																	"physicalType": "String"
+																}
+															},
+															{
+																"source": {
+																	"name": "Order Date",
+																	"type": "String",
+																	"physicalType": "String"
+																},
+																"sink": {
+																	"name": "Order Date",
+																	"type": "String",
+																	"physicalType": "String"
+																}
+															},
+															{
+																"source": {
+																	"name": "Order ID",
+																	"type": "String",
+																	"physicalType": "String"
+																},
+																"sink": {
+																	"name": "Order ID",
+																	"type": "String",
+																	"physicalType": "String"
+																}
+															},
+															{
+																"source": {
+																	"name": "Ship Date",
+																	"type": "String",
+																	"physicalType": "String"
+																},
+																"sink": {
+																	"name": "Ship Date",
+																	"type": "String",
+																	"physicalType": "String"
+																}
+															},
+															{
+																"source": {
+																	"name": "Units Sold",
+																	"type": "String",
+																	"physicalType": "String"
+																},
+																"sink": {
+																	"name": "Units Sold",
+																	"type": "String",
+																	"physicalType": "String"
+																}
+															},
+															{
+																"source": {
+																	"name": "Unit Price",
+																	"type": "String",
+																	"physicalType": "String"
+																},
+																"sink": {
+																	"name": "Unit Price",
+																	"type": "String",
+																	"physicalType": "String"
+																}
+															},
+															{
+																"source": {
+																	"name": "Unit Cost",
+																	"type": "String",
+																	"physicalType": "String"
+																},
+																"sink": {
+																	"name": "Unit Cost",
+																	"type": "String",
+																	"physicalType": "String"
+																}
+															},
+															{
+																"source": {
+																	"name": "Total Revenue",
+																	"type": "String",
+																	"physicalType": "String"
+																},
+																"sink": {
+																	"name": "Total Revenue",
+																	"type": "String",
+																	"physicalType": "String"
+																}
+															},
+															{
+																"source": {
+																	"name": "Total Cost",
+																	"type": "String",
+																	"physicalType": "String"
+																},
+																"sink": {
+																	"name": "Total Cost",
+																	"type": "String",
+																	"physicalType": "String"
+																}
+															},
+															{
+																"source": {
+																	"name": "Total Profit",
+																	"type": "String",
+																	"physicalType": "String"
+																},
+																"sink": {
+																	"name": "Total Profit",
+																	"type": "String",
+																	"physicalType": "String"
+																}
+															}
+														],
+														"typeConversion": true,
+														"typeConversionSettings": {
+															"allowDataTruncation": true,
+															"treatBooleanAsNumber": false
+														}
+													}
+												},
+												"inputs": [
+													{
+														"referenceName": "Sales_CSV",
+														"type": "DatasetReference",
+														"parameters": {
+															"folder_path": {
+																"value": "@item().folder_path",
+																"type": "Expression"
+															},
+															"source_file_name": {
+																"value": "@item().source_file_name",
+																"type": "Expression"
+															}
+														}
+													}
+												],
+												"outputs": [
+													{
+														"referenceName": "Sales_Raw_CSV",
+														"type": "DatasetReference",
+														"parameters": {
+															"folder_name": {
+																"value": "@item().folder_path",
+																"type": "Expression"
+															},
+															"source_file_name": {
+																"value": "@item().source_file_name",
+																"type": "Expression"
+															}
+														}
+													}
+												]
+											}
+										]
+									},
+									{
+										"value": "Case2",
+										"activities": [
+											{
+												"name": "Copy_CSV_Staging",
+												"type": "Copy",
+												"dependsOn": [],
+												"policy": {
+													"timeout": "7.00:00:00",
+													"retry": 0,
+													"retryIntervalInSeconds": 30,
+													"secureOutput": false,
+													"secureInput": false
+												},
+												"userProperties": [],
+												"typeProperties": {
+													"source": {
+														"type": "DelimitedTextSource",
+														"storeSettings": {
+															"type": "AzureDataLakeStoreReadSettings",
+															"recursive": true,
+															"enablePartitionDiscovery": false
+														},
+														"formatSettings": {
+															"type": "DelimitedTextReadSettings"
+														}
+													},
+													"sink": {
+														"type": "AzureSqlSink"
+													},
+													"enableStaging": false,
+													"translator": {
+														"type": "TabularTranslator",
+														"mappings": [
+															{
+																"source": {
+																	"name": "Region"
+																},
+																"sink": {
+																	"name": "Region",
+																	"type": "String",
+																	"physicalType": "nvarchar"
+																}
+															},
+															{
+																"source": {
+																	"name": "Country"
+																},
+																"sink": {
+																	"name": "Country",
+																	"type": "String",
+																	"physicalType": "nvarchar"
+																}
+															},
+															{
+																"source": {
+																	"name": "Item Type"
+																},
+																"sink": {
+																	"name": "Item_Type",
+																	"type": "String",
+																	"physicalType": "nvarchar"
+																}
+															},
+															{
+																"source": {
+																	"name": "Sales Channel"
+																},
+																"sink": {
+																	"name": "Sales_Channel",
+																	"type": "String",
+																	"physicalType": "nvarchar"
+																}
+															},
+															{
+																"source": {
+																	"name": "Order Priority"
+																},
+																"sink": {
+																	"name": "Order_Priority",
+																	"type": "String",
+																	"physicalType": "nvarchar"
+																}
+															},
+															{
+																"source": {
+																	"name": "Order Date"
+																},
+																"sink": {
+																	"name": "Order_Date",
+																	"type": "DateTime",
+																	"physicalType": "datetime2"
+																}
+															},
+															{
+																"source": {
+																	"name": "Order ID"
+																},
+																"sink": {
+																	"name": "Order_ID",
+																	"type": "Int32",
+																	"physicalType": "int"
+																}
+															},
+															{
+																"source": {
+																	"name": "Ship Date"
+																},
+																"sink": {
+																	"name": "Ship_Date",
+																	"type": "DateTime",
+																	"physicalType": "datetime2"
+																}
+															},
+															{
+																"source": {
+																	"name": "Units Sold"
+																},
+																"sink": {
+																	"name": "Units_Sold",
+																	"type": "Int32",
+																	"physicalType": "int"
+																}
+															},
+															{
+																"source": {
+																	"name": "Unit Price"
+																},
+																"sink": {
+																	"name": "Unit_Price",
+																	"type": "Double",
+																	"physicalType": "float"
+																}
+															},
+															{
+																"source": {
+																	"name": "Unit Cost"
+																},
+																"sink": {
+																	"name": "Unit_Cost",
+																	"type": "Double",
+																	"physicalType": "float"
+																}
+															},
+															{
+																"source": {
+																	"name": "Total Revenue"
+																},
+																"sink": {
+																	"name": "Total_Revenue",
+																	"type": "Double",
+																	"physicalType": "float"
+																}
+															},
+															{
+																"source": {
+																	"name": "Total Cost"
+																},
+																"sink": {
+																	"name": "Total_Cost",
+																	"type": "Double",
+																	"physicalType": "float"
+																}
+															},
+															{
+																"source": {
+																	"name": "Total Profit"
+																},
+																"sink": {
+																	"name": "Total_Profit",
+																	"type": "Double",
+																	"physicalType": "float"
+																}
+															}
+														],
+														"typeConversion": true,
+														"typeConversionSettings": {
+															"allowDataTruncation": true,
+															"treatBooleanAsNumber": false
+														}
+													}
+												},
+												"inputs": [
+													{
+														"referenceName": "Sales_Raw_CSV",
+														"type": "DatasetReference",
+														"parameters": {
+															"folder_name": {
+																"value": "@item().folder_path",
+																"type": "Expression"
+															},
+															"source_file_name": {
+																"value": "@item().source_file_name",
+																"type": "Expression"
+															}
+														}
+													}
+												],
+												"outputs": [
+													{
+														"referenceName": "Sales_Staging",
+														"type": "DatasetReference",
+														"parameters": {
+															"table_name": {
+																"value": "@item().table_name",
+																"type": "Expression"
+															}
+														}
+													}
+												]
+											}
+										]
+									},
+									{
+										"value": "Case3",
+										"activities": [
+											{
+												"name": "Copy_Staging_Table",
+												"type": "Copy",
+												"dependsOn": [],
+												"policy": {
+													"timeout": "7.00:00:00",
+													"retry": 0,
+													"retryIntervalInSeconds": 30,
+													"secureOutput": false,
+													"secureInput": false
+												},
+												"userProperties": [],
+												"typeProperties": {
+													"source": {
+														"type": "AzureSqlSource",
+														"sqlReaderQuery": {
+															"value": "@item().Query",
+															"type": "Expression"
+														},
+														"queryTimeout": "02:00:00",
+														"partitionOption": "None"
+													},
+													"sink": {
+														"type": "AzureSqlSink"
+													},
+													"enableStaging": false,
+													"translator": {
+														"type": "TabularTranslator",
+														"mappings": [
+															{
+																"source": {
+																	"name": "Region",
+																	"type": "String",
+																	"physicalType": "nvarchar"
+																},
+																"sink": {
+																	"name": "Region",
+																	"type": "String",
+																	"physicalType": "nvarchar"
+																}
+															},
+															{
+																"source": {
+																	"name": "Country",
+																	"type": "String",
+																	"physicalType": "nvarchar"
+																},
+																"sink": {
+																	"name": "Country",
+																	"type": "String",
+																	"physicalType": "nvarchar"
+																}
+															},
+															{
+																"source": {
+																	"name": "Item_Type",
+																	"type": "String",
+																	"physicalType": "nvarchar"
+																},
+																"sink": {
+																	"name": "Item_Type",
+																	"type": "String",
+																	"physicalType": "nvarchar"
+																}
+															},
+															{
+																"source": {
+																	"name": "Sales_Channel",
+																	"type": "String",
+																	"physicalType": "nvarchar"
+																},
+																"sink": {
+																	"name": "Sales_Channel",
+																	"type": "String",
+																	"physicalType": "nvarchar"
+																}
+															},
+															{
+																"source": {
+																	"name": "Order_Priority",
+																	"type": "String",
+																	"physicalType": "nvarchar"
+																},
+																"sink": {
+																	"name": "Order_Priority",
+																	"type": "String",
+																	"physicalType": "nvarchar"
+																}
+															},
+															{
+																"source": {
+																	"name": "Order_Date",
+																	"type": "DateTime",
+																	"physicalType": "datetime2"
+																},
+																"sink": {
+																	"name": "Order_Date",
+																	"type": "DateTime",
+																	"physicalType": "datetime2"
+																}
+															},
+															{
+																"source": {
+																	"name": "Order_ID",
+																	"type": "Int32",
+																	"physicalType": "int"
+																},
+																"sink": {
+																	"name": "Order_ID",
+																	"type": "Int32",
+																	"physicalType": "int"
+																}
+															},
+															{
+																"source": {
+																	"name": "Ship_Date",
+																	"type": "DateTime",
+																	"physicalType": "datetime2"
+																},
+																"sink": {
+																	"name": "Ship_Date",
+																	"type": "DateTime",
+																	"physicalType": "datetime2"
+																}
+															},
+															{
+																"source": {
+																	"name": "Units_Sold",
+																	"type": "Int32",
+																	"physicalType": "int"
+																},
+																"sink": {
+																	"name": "Units_Sold",
+																	"type": "Int32",
+																	"physicalType": "int"
+																}
+															},
+															{
+																"source": {
+																	"name": "Unit_Price",
+																	"type": "Double",
+																	"physicalType": "float"
+																},
+																"sink": {
+																	"name": "Unit_Price",
+																	"type": "Double",
+																	"physicalType": "float"
+																}
+															},
+															{
+																"source": {
+																	"name": "Unit_Cost",
+																	"type": "Double",
+																	"physicalType": "float"
+																},
+																"sink": {
+																	"name": "Unit_Cost",
+																	"type": "Double",
+																	"physicalType": "float"
+																}
+															},
+															{
+																"source": {
+																	"name": "Total_Revenue",
+																	"type": "Double",
+																	"physicalType": "float"
+																},
+																"sink": {
+																	"name": "Total_Revenue",
+																	"type": "Double",
+																	"physicalType": "float"
+																}
+															},
+															{
+																"source": {
+																	"name": "Total_Cost",
+																	"type": "Double",
+																	"physicalType": "float"
+																},
+																"sink": {
+																	"name": "Total_Cost",
+																	"type": "Double",
+																	"physicalType": "float"
+																}
+															},
+															{
+																"source": {
+																	"name": "Total_Profit",
+																	"type": "Double",
+																	"physicalType": "float"
+																},
+																"sink": {
+																	"name": "Total_Profit",
+																	"type": "Double",
+																	"physicalType": "float"
+																}
+															},
+															{
+																"source": {
+																	"name": "Year",
+																	"type": "Int32",
+																	"physicalType": "int"
+																},
+																"sink": {
+																	"name": "year",
+																	"type": "Int32",
+																	"physicalType": "int"
+																}
+															}
+														],
+														"typeConversion": true,
+														"typeConversionSettings": {
+															"allowDataTruncation": true,
+															"treatBooleanAsNumber": false
+														}
+													}
+												},
+												"inputs": [
+													{
+														"referenceName": "Sales_Staging",
+														"type": "DatasetReference",
+														"parameters": {
+															"table_name": {
+																"value": "@item().table_name",
+																"type": "Expression"
+															}
+														}
+													}
+												],
+												"outputs": [
+													{
+														"referenceName": "Sales_Staging_Copy",
+														"type": "DatasetReference"
+													}
+												]
+											}
+										]
+									}
+								]
+							}
+						}
+					]
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2021-04-23T17:16:53Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

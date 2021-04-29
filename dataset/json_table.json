@@ -1,0 +1,81 @@
+{
+	"name": "json_table",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "InvoiceNumber",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "CreatedTime",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "PosID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "CustomerType",
+				"type": "varchar"
+			},
+			{
+				"name": "PaymentMethod",
+				"type": "varchar"
+			},
+			{
+				"name": "DeliveryType",
+				"type": "varchar"
+			},
+			{
+				"name": "City",
+				"type": "varchar"
+			},
+			{
+				"name": "State",
+				"type": "varchar"
+			},
+			{
+				"name": "PinCode",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ItemCode",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ItemDescription",
+				"type": "varchar"
+			},
+			{
+				"name": "ItemPrice",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "ItemQty",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TotalValue",
+				"type": "float",
+				"precision": 15
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "json_files"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

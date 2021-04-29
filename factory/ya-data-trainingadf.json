@@ -1,0 +1,9 @@
+{
+	"name": "ya-data-trainingadf",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "500137a6-57e5-45ca-bb4a-33a1457695cf",
+		"tenantId": "74825694-46fc-4964-988f-b5cf8e70c3a3"
+	}
+}

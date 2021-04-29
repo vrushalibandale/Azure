@@ -1,0 +1,14 @@
+{
+	"name": "AzureDataLakeStore1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureDataLakeStore",
+		"typeProperties": {
+			"dataLakeStoreUri": "https://yadatatrainingblobvb.azuredatalakestore.net/webhdfs/v1",
+			"tenant": "74825694-46fc-4964-988f-b5cf8e70c3a3",
+			"subscriptionId": "b997e224-52b7-474b-a58a-8db0a29a506e",
+			"resourceGroupName": "YA_DATA_Training"
+		}
+	}
+}

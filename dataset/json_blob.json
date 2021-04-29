@@ -1,0 +1,66 @@
+{
+	"name": "json_blob",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "blob.json",
+				"container": "json"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"InvoiceNumber": {
+					"type": "string"
+				},
+				"CreatedTime": {
+					"type": "integer"
+				},
+				"PosID": {
+					"type": "string"
+				},
+				"CustomerType": {
+					"type": "string"
+				},
+				"PaymentMethod": {
+					"type": "string"
+				},
+				"DeliveryType": {
+					"type": "string"
+				},
+				"City": {
+					"type": "string"
+				},
+				"State": {
+					"type": "string"
+				},
+				"PinCode": {
+					"type": "string"
+				},
+				"ItemCode": {
+					"type": "string"
+				},
+				"ItemDescription": {
+					"type": "string"
+				},
+				"ItemPrice": {
+					"type": "number"
+				},
+				"ItemQty": {
+					"type": "integer"
+				},
+				"TotalValue": {
+					"type": "number"
+				}
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,33 @@
+{
+	"name": "Orders_json",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStore1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureDataLakeStoreLocation",
+				"fileName": "orders.json",
+				"folderPath": "Configuration"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"folder_path": {
+					"type": "string"
+				},
+				"filename_input": {
+					"type": "string"
+				},
+				"filename_output": {
+					"type": "string"
+				}
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

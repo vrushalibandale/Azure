@@ -1,0 +1,83 @@
+{
+	"name": "Sales_Staging_Copy",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Region",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Country",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Item_Type",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Sales_Channel",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Order_Priority",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Order_Date",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "Order_ID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Ship_Date",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "Units_Sold",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Unit_Price",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "Unit_Cost",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "Total_Revenue",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "Total_Cost",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "Total_Profit",
+				"type": "float",
+				"precision": 15
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Sales_Record_Copy"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

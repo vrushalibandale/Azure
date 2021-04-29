@@ -1,0 +1,60 @@
+{
+	"name": "copy_objects",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStore1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureDataLakeStoreLocation",
+				"fileName": "copy_objects.json",
+				"folderPath": "Configuration"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"copy_csv": {
+					"type": "object",
+					"properties": {
+						"folder_path": {
+							"type": "string"
+						},
+						"source_file_name": {
+							"type": "string"
+						}
+					}
+				},
+				"copy_staging": {
+					"type": "object",
+					"properties": {
+						"folder_path": {
+							"type": "string"
+						},
+						"source_file_name": {
+							"type": "string"
+						},
+						"table_name": {
+							"type": "string"
+						}
+					}
+				},
+				"copy_table": {
+					"type": "object",
+					"properties": {
+						"tablename": {
+							"type": "string"
+						},
+						"Query": {
+							"type": "string"
+						}
+					}
+				}
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

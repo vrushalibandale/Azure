@@ -1,0 +1,33 @@
+{
+	"name": "Json1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStore1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureDataLakeStoreLocation",
+				"fileName": "demo1.json",
+				"folderPath": "Configuration"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"folder_path": {
+					"type": "string"
+				},
+				"Source_file_name": {
+					"type": "string"
+				},
+				"table_name": {
+					"type": "string"
+				}
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
