@@ -10,7 +10,8 @@
 					"referenceName": "AzureKeyVault1",
 					"type": "LinkedServiceReference"
 				},
-				"secretName": "azurestoragevb-connectionstring"
+				"secretName": "azurestoragevb-connectionstring",
+				"secretVersion": ""
 			}
 		}
 	}
