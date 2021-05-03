@@ -3,7 +3,8 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy data1",
+				"name": "copy_excel",
+				"description": "Copying data from Excel files to database",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
