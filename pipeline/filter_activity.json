@@ -17,7 +17,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "Input_json",
+						"referenceName": "input_csv",
 						"type": "DatasetReference"
 					},
 					"fieldList": [
@@ -28,7 +28,7 @@
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
-						"type": "JsonReadSettings"
+						"type": "DelimitedTextReadSettings"
 					}
 				}
 			},
