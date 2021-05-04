@@ -150,7 +150,7 @@
 		"parameters": {
 			"CopyToOutput1": {
 				"type": "string",
-				"defaultValue": "false"
+				"defaultValue": "true"
 			},
 			"Output1Folder": {
 				"type": "string",
