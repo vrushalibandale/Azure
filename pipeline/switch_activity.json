@@ -140,7 +140,7 @@
 									],
 									"outputs": [
 										{
-											"referenceName": "switch_output",
+											"referenceName": "switch_output2",
 											"type": "DatasetReference",
 											"parameters": {
 												"folder_name": {
