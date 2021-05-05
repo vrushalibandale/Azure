@@ -1,5 +1,5 @@
 {
-	"name": "blob_sql_metadata",
+	"name": "blob_sql_metadata_foreach",
 	"properties": {
 		"activities": [
 			{
