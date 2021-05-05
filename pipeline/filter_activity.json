@@ -25,6 +25,7 @@
 					],
 					"storeSettings": {
 						"type": "AzureBlobStorageReadSettings",
+						"recursive": true,
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
@@ -33,7 +34,7 @@
 				}
 			},
 			{
-				"name": "Filter_json_files",
+				"name": "Filter_csv_files",
 				"type": "Filter",
 				"dependsOn": [
 					{
