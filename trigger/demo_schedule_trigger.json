@@ -3,7 +3,7 @@
 	"properties": {
 		"description": "daily trigger",
 		"annotations": [],
-		"runtimeState": "Stopped",
+		"runtimeState": "Started",
 		"pipelines": [
 			{
 				"pipelineReference": {
