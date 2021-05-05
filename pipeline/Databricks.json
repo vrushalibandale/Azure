@@ -16,6 +16,10 @@
 				"userProperties": [],
 				"typeProperties": {
 					"notebookPath": "/Users/admin@northeasternuniversity184.onmicrosoft.com/2"
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureDatabricks1",
+					"type": "LinkedServiceReference"
 				}
 			}
 		],
