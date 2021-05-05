@@ -97,6 +97,7 @@
 									"storeSettings": {
 										"type": "AzureBlobStorageReadSettings",
 										"recursive": true,
+										"wildcardFileName": "*.csv",
 										"enablePartitionDiscovery": false
 									},
 									"formatSettings": {
@@ -126,7 +127,7 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "Input_Sales",
+									"referenceName": "input_csv",
 									"type": "DatasetReference"
 								}
 							],
