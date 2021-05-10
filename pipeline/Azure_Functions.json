@@ -17,7 +17,12 @@
 				"typeProperties": {
 					"functionName": "MyFirstFunction",
 					"method": "POST",
-					"body": "[{\"val1\":\"5\",\n\"val2:\"5\"}]"
+					"body": [
+						{
+							"val1": "5",
+							"val2": "5"
+						}
+					]
 				},
 				"linkedServiceName": {
 					"referenceName": "AzureFunction1",
