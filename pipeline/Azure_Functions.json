@@ -18,6 +18,7 @@
 					"functionName": "MyFirstFunction",
 					"method": "POST",
 					"body": {
+						"name": "abc",
 						"val1": "5",
 						"val2": "5"
 					}
