@@ -1,0 +1,17 @@
+{
+	"name": "dynamic_sql_linkedService",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"parameters": {
+			"db_name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"connectionString": "integrated security=False;data source=ya-data-training-azsqlvb.database.windows.net;initial catalog=@{linkedService().db_name};user id=vrushali",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIllBLURBVEEtVFJBSU5JTkdBREZfYTk4YjIyNTUtZGFlZi00ZjlkLWE2ZWQtY2U4OGJjMDVhMGE1Ig0KfQ=="
+		}
+	}
+}
