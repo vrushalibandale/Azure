@@ -11,7 +11,7 @@
 					"type": "LinkedServiceReference"
 				},
 				"secretName": "azurestoragevb-connectionstring",
-				"secretVersion": "vrushali"
+				"secretVersion": "e0d74a3ede8b4a09ba46b7e632457d81"
 			}
 		}
 	}
