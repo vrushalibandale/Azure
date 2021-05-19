@@ -9,7 +9,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"expression": {
-						"value": "@bool(pipeline().parameters.CopyToOutput1)",
+						"value": "@pipeline().parameters.CopyToOutput1",
 						"type": "Expression"
 					},
 					"ifFalseActivities": [
@@ -150,8 +150,8 @@
 		],
 		"parameters": {
 			"CopyToOutput1": {
-				"type": "string",
-				"defaultValue": "true"
+				"type": "bool",
+				"defaultValue": true
 			},
 			"Output1Folder": {
 				"type": "string",
