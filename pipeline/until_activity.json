@@ -9,7 +9,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"expression": {
-						"value": "@bool(variables('FileAvailable'))",
+						"value": "@variables('FileAvailable')",
 						"type": "Expression"
 					},
 					"activities": [
@@ -76,7 +76,7 @@
 										"userProperties": [],
 										"typeProperties": {
 											"variableName": "FileAvailable",
-											"value": "true"
+											"value": true
 										}
 									}
 								]
@@ -143,8 +143,8 @@
 		],
 		"variables": {
 			"FileAvailable": {
-				"type": "String",
-				"defaultValue": "false"
+				"type": "Boolean",
+				"defaultValue": false
 			}
 		},
 		"annotations": []
