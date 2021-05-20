@@ -1,5 +1,5 @@
 {
-	"name": "blob_sql_foreach",
+	"name": "blob_sql_copy1",
 	"properties": {
 		"activities": [
 			{
@@ -20,7 +20,6 @@
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
 							"recursive": true,
-							"wildcardFileName": "*",
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
@@ -28,7 +27,7 @@
 						}
 					},
 					"dataset": {
-						"referenceName": "blob_json",
+						"referenceName": "json_blob",
 						"type": "DatasetReference"
 					},
 					"firstRowOnly": false
@@ -107,7 +106,7 @@
 			}
 		],
 		"annotations": [],
-		"lastPublishTime": "2021-04-28T22:09:56Z"
+		"lastPublishTime": "2021-04-28T23:06:38Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }
