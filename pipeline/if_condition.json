@@ -162,6 +162,9 @@
 				"defaultValue": "output2"
 			}
 		},
+		"folder": {
+			"name": "iteration"
+		},
 		"annotations": []
 	}
 }

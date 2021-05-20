@@ -143,9 +143,11 @@
 		],
 		"variables": {
 			"FileAvailable": {
-				"type": "Boolean",
-				"defaultValue": false
+				"type": "Boolean"
 			}
+		},
+		"folder": {
+			"name": "iteration"
 		},
 		"annotations": []
 	}

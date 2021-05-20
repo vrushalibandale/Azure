@@ -162,6 +162,9 @@
 				"type": "string"
 			}
 		},
+		"folder": {
+			"name": "iteration"
+		},
 		"annotations": []
 	}
 }
