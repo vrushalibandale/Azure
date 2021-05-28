@@ -17,9 +17,7 @@
 				"typeProperties": {
 					"functionName": "blob_storage",
 					"method": "POST",
-					"body": {
-						"name": "abc"
-					}
+					"body": ""
 				},
 				"linkedServiceName": {
 					"referenceName": "AzureFunction2",
