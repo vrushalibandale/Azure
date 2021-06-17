@@ -54,11 +54,21 @@
 							}
 						}
 					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"tableOption": "autoCreate"
+					},
 					"enableStaging": false
 				},
 				"inputs": [
 					{
 						"referenceName": "RestResource1",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "log_sql",
 						"type": "DatasetReference"
 					}
 				]
