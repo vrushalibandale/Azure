@@ -17,7 +17,10 @@
 				"typeProperties": {
 					"url": "https://login.microsoftonline.com/74825694-46fc-4964-988f-b5cf8e70c3a3/oauth2/v2.0/authorize",
 					"method": "POST",
-					"body": "grant_type=authorization_code\n&client_id=439cecde-eda1-4bce-9fcf-33eb3a883e07\n&code=https://login.microsoftonline.com/74825694-46fc-4964-988f-b5cf8e70c3a3/oauth2/v2.0/authorize\n&resource=https://api.loganalytics.io\n&client_secret=pDP3B5_M84bS8~3yt_C5~40qwd~E8enyP_"
+					"headers": {
+						"Content-Type": "application/x-www-form-urlencoded"
+					},
+					"body": "grant_type=authorization_code\n&client_id=439cecde-eda1-4bce-9fcf-33eb3a883e07\n&resource=https://api.loganalytics.io\n&client_secret=pDP3B5_M84bS8~3yt_C5~40qwd~E8enyP_"
 				}
 			},
 			{
@@ -55,8 +58,15 @@
 						}
 					},
 					"sink": {
-						"type": "AzureSqlSink",
-						"tableOption": "autoCreate"
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
 					},
 					"enableStaging": false
 				},
@@ -68,7 +78,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "log_sql",
+						"referenceName": "log_output",
 						"type": "DatasetReference"
 					}
 				]
