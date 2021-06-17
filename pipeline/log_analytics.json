@@ -65,7 +65,7 @@
 						"formatSettings": {
 							"type": "DelimitedTextWriteSettings",
 							"quoteAllText": true,
-							"fileExtension": ".txt"
+							"fileExtension": ".csv"
 						}
 					},
 					"enableStaging": false,
@@ -77,8 +77,8 @@
 									"path": "$['tables'][0]['name']"
 								},
 								"sink": {
-									"type": "String",
-									"ordinal": 1
+									"name": "tables'][0]['name",
+									"type": "String"
 								}
 							},
 							{
@@ -86,8 +86,8 @@
 									"path": "$['tables'][0]['columns'][0]['name']"
 								},
 								"sink": {
-									"type": "String",
-									"ordinal": 2
+									"name": "tables'][0]['columns'][0]['name",
+									"type": "String"
 								}
 							},
 							{
@@ -95,8 +95,8 @@
 									"path": "$['tables'][0]['columns'][0]['type']"
 								},
 								"sink": {
-									"type": "String",
-									"ordinal": 3
+									"name": "type",
+									"type": "String"
 								}
 							}
 						],
