@@ -1,0 +1,12 @@
+{
+	"name": "RestService1",
+	"properties": {
+		"annotations": [],
+		"type": "RestService",
+		"typeProperties": {
+			"url": "https://api.loganalytics.io/v1/workspaces/5e64f9c8-ab26-4335-978c-58e9d6cd3832",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		}
+	}
+}
