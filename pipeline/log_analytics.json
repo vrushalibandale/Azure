@@ -45,7 +45,7 @@
 						"httpRequestTimeout": "00:01:40",
 						"requestInterval": "00.00:00:00.010",
 						"requestMethod": "POST",
-						"requestBody": "{\n\"query\": \"LAQueryLogs\" \n}",
+						"requestBody": "{\n\"query\": \"LAQueryLogs\" | summarize count() by AADObjectId\n}",
 						"additionalHeaders": {
 							"content-type": "application/json; charset=utf-8",
 							"Authorization": {
