@@ -65,7 +65,7 @@
 						"formatSettings": {
 							"type": "DelimitedTextWriteSettings",
 							"quoteAllText": true,
-							"fileExtension": ".csv"
+							"fileExtension": ".txt"
 						}
 					},
 					"enableStaging": false,
@@ -77,13 +77,22 @@
 									"path": "$[0]"
 								},
 								"sink": {
+									"name": "$['TenantID']",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$[1]"
+								},
+								"sink": {
 									"name": "$['TimeGenerated']",
 									"type": "DateTime"
 								}
 							},
 							{
 								"source": {
-									"path": "$[1]"
+									"path": "$[2]"
 								},
 								"sink": {
 									"name": "$['CorrelationID']",
@@ -92,19 +101,10 @@
 							},
 							{
 								"source": {
-									"path": "$[2]"
-								},
-								"sink": {
-									"name": "$['AADTenantID']",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
 									"path": "$[3]"
 								},
 								"sink": {
-									"name": "$['AADEmail']",
+									"name": "$['AADObjectID']",
 									"type": "String"
 								}
 							},
@@ -113,7 +113,7 @@
 									"path": "$[4]"
 								},
 								"sink": {
-									"name": "$['AADClientID']",
+									"name": "$['AADTenantID']",
 									"type": "String"
 								}
 							},
@@ -122,8 +122,8 @@
 									"path": "$[5]"
 								},
 								"sink": {
-									"name": "$['QueryTimeRangeStart']",
-									"type": "DateTime"
+									"name": "$['AADEmail']",
+									"type": "String"
 								}
 							},
 							{
@@ -131,13 +131,31 @@
 									"path": "$['6']"
 								},
 								"sink": {
-									"name": "$['QueryTimeRangeEnds']",
-									"type": "DateTime"
+									"name": "$['AADClientID']",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
 									"path": "$['7']"
+								},
+								"sink": {
+									"name": "$['QueryTimeRangeStart']",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"path": "$['8']"
+								},
+								"sink": {
+									"name": "$['QueryTimeRangeEnd']",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"path": "$['9']"
 								},
 								"sink": {
 									"name": "$['QueryText']",
@@ -146,7 +164,7 @@
 							},
 							{
 								"source": {
-									"path": "$['8']"
+									"path": "$['10']"
 								},
 								"sink": {
 									"name": "$['RequestClientApp']",
@@ -155,7 +173,7 @@
 							},
 							{
 								"source": {
-									"path": "$['9']"
+									"path": "$['11']"
 								},
 								"sink": {
 									"name": "$['RequestTarget']",
@@ -164,7 +182,7 @@
 							},
 							{
 								"source": {
-									"path": "$['10']"
+									"path": "$['12']"
 								},
 								"sink": {
 									"name": "$['RequestContext']",
@@ -173,7 +191,16 @@
 							},
 							{
 								"source": {
-									"path": "$['11']"
+									"path": "$['13']"
+								},
+								"sink": {
+									"name": "$['RequestContextFilters']",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['14']"
 								},
 								"sink": {
 									"name": "$['ResponseCode']",
@@ -182,7 +209,7 @@
 							},
 							{
 								"source": {
-									"path": "$['12']"
+									"path": "$['15']"
 								},
 								"sink": {
 									"name": "$['ResponseRowCount']",
@@ -191,43 +218,43 @@
 							},
 							{
 								"source": {
-									"path": "$['13']"
-								},
-								"sink": {
-									"name": "$['ResponseDurationMS']",
-									"type": "Int64"
-								}
-							},
-							{
-								"source": {
-									"path": "$['14']"
-								},
-								"sink": {
-									"name": "$['StatsCPUTimeMS']",
-									"type": "Int64"
-								}
-							},
-							{
-								"source": {
-									"path": "$['15']"
-								},
-								"sink": {
-									"name": "$['StatsDateProcessedMS']",
-									"type": "DateTime"
-								}
-							},
-							{
-								"source": {
 									"path": "$['16']"
 								},
 								"sink": {
-									"name": "$['StatsDateProcessedStart']",
-									"type": "DateTime"
+									"name": "$['ResposneDurationMS']",
+									"type": "Int64"
 								}
 							},
 							{
 								"source": {
 									"path": "$['17']"
+								},
+								"sink": {
+									"name": "$['StatsCPUTimeMs']",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"path": "$['18']"
+								},
+								"sink": {
+									"name": "$['StatsDataProcessedKB']",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"path": "$['19']"
+								},
+								"sink": {
+									"name": "$['StatsDataProcessedStart']",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"path": "$['20']"
 								},
 								"sink": {
 									"name": "$['StatsDataProcessedEnd']",
@@ -236,11 +263,38 @@
 							},
 							{
 								"source": {
-									"path": "$['18']"
+									"path": "$['21']"
 								},
 								"sink": {
 									"name": "$['StatsWorkspaceCount']",
 									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"path": "$['22']"
+								},
+								"sink": {
+									"name": "$['StatsRegionCount']",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"path": "$['23']"
+								},
+								"sink": {
+									"name": "$['SourceSystem']",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['24']"
+								},
+								"sink": {
+									"name": "$['type']",
+									"type": "String"
 								}
 							}
 						],
