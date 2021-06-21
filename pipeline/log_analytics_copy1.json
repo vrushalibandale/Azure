@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"url": "https://login.microsoftonline.com/74825694-46fc-4964-988f-b5cf8e70c3a3/oauth2/authorize",
-					"method": "POST",
+					"method": "GET",
 					"headers": {
 						"content-Type": "application/x-www-form-urlencoded"
 					},
@@ -80,7 +80,7 @@
 						"additionalHeaders": {
 							"content-type": "application/json; charset=utf-8",
 							"Authorization": {
-								"value": "@concat('Bearer ',activity('GetBearerToken').output.access_token)",
+								"value": "@concat('Bearer ',activity('Web1').output.access_token)\n",
 								"type": "Expression"
 							}
 						}
