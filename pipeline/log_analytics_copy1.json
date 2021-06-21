@@ -102,213 +102,38 @@
 						"mappings": [
 							{
 								"source": {
-									"path": "$[1]"
+									"path": "$['tables'][0]['name']"
 								},
 								"sink": {
-									"name": "$['TimeGenerated']",
-									"type": "DateTime"
+									"ordinal": 1
 								}
 							},
 							{
 								"source": {
-									"path": "$[2]"
+									"path": "$['tables'][0]['columns'][0]['name']"
 								},
 								"sink": {
-									"name": "$['CorrelationID']",
-									"type": "String"
+									"ordinal": 2
 								}
 							},
 							{
 								"source": {
-									"path": "$[3]"
+									"path": "$['tables'][0]['columns'][0]['type']"
 								},
 								"sink": {
-									"name": "$['AADObjectID']",
-									"type": "String"
+									"ordinal": 3
 								}
 							},
 							{
 								"source": {
-									"path": "$[4]"
+									"path": "$['tables'][0]['rows']"
 								},
 								"sink": {
-									"name": "$['AADTenantID']",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "$[5]"
-								},
-								"sink": {
-									"name": "$['AADEmail']",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "$['$[6]']"
-								},
-								"sink": {
-									"name": "$['AADClientID']",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "$['$[7]']"
-								},
-								"sink": {
-									"name": "$['QueryTimeRangeStart']",
-									"type": "DateTime"
-								}
-							},
-							{
-								"source": {
-									"path": "$['$[8]']"
-								},
-								"sink": {
-									"name": "$['QueryTimeRangeEnd']",
-									"type": "DateTime"
-								}
-							},
-							{
-								"source": {
-									"path": "$['$[9]']"
-								},
-								"sink": {
-									"name": "$['QueryText']",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "$['$[10]']"
-								},
-								"sink": {
-									"name": "$['RequestClientApp']",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "$['$[11]']"
-								},
-								"sink": {
-									"name": "$['RequestTarget']",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "$['$[12]']"
-								},
-								"sink": {
-									"name": "$['RequestContext']",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "$['$[13]']"
-								},
-								"sink": {
-									"name": "$['RequestContextFilters']",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "$['$[14]']"
-								},
-								"sink": {
-									"name": "$['ResponseCode']",
-									"type": "Int64"
-								}
-							},
-							{
-								"source": {
-									"path": "$['$[15]']"
-								},
-								"sink": {
-									"name": "$['ResponseRowCount']",
-									"type": "Int64"
-								}
-							},
-							{
-								"source": {
-									"path": "$['$[16]']"
-								},
-								"sink": {
-									"name": "$['ResposneDurationMS']",
-									"type": "Int64"
-								}
-							},
-							{
-								"source": {
-									"path": "$['$[17]']"
-								},
-								"sink": {
-									"name": "$['StatsCPUTimeMs']",
-									"type": "Int64"
-								}
-							},
-							{
-								"source": {
-									"path": "$['$[18]']"
-								},
-								"sink": {
-									"name": "$['StatsDataProcessedKB']",
-									"type": "Int64"
-								}
-							},
-							{
-								"source": {
-									"path": "$['$[19]']"
-								},
-								"sink": {
-									"name": "$['StatsDataProcessedStart']",
-									"type": "DateTime"
-								}
-							},
-							{
-								"source": {
-									"path": "$['$[20]']"
-								},
-								"sink": {
-									"name": "$['StatsDataProcessedEnd']",
-									"type": "DateTime"
-								}
-							},
-							{
-								"source": {
-									"path": "$['$[22]']"
-								},
-								"sink": {
-									"name": "$['StatsRegionCount']",
-									"type": "Int64"
-								}
-							},
-							{
-								"source": {
-									"path": "$['$[23]']"
-								},
-								"sink": {
-									"name": "$['SourceSystem']",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "$['$[24]']"
-								},
-								"sink": {
-									"name": "$['type']",
-									"type": "String"
+									"ordinal": 4
 								}
 							}
 						],
-						"collectionReference": "$['tables']"
+						"collectionReference": "$['json']"
 					}
 				},
 				"inputs": [
