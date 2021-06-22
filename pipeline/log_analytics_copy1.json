@@ -105,7 +105,7 @@
 									"path": "$['tables'][0]['name']"
 								},
 								"sink": {
-									"ordinal": 1
+									"name": "tables'][0]['name"
 								}
 							},
 							{
@@ -113,7 +113,7 @@
 									"path": "$['tables'][0]['columns'][0]['name']"
 								},
 								"sink": {
-									"ordinal": 2
+									"name": "tables'][0]['columns'][0]['name"
 								}
 							},
 							{
@@ -121,15 +121,15 @@
 									"path": "$['tables'][0]['columns'][0]['type']"
 								},
 								"sink": {
-									"ordinal": 3
+									"name": "type"
 								}
 							},
 							{
 								"source": {
-									"path": "$['tables'][0]['rows']"
+									"path": "$['tables'][0]['rows'][0][0]"
 								},
 								"sink": {
-									"ordinal": 4
+									"name": "items"
 								}
 							}
 						],
