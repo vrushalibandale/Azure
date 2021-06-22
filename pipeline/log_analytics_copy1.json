@@ -52,7 +52,7 @@
 				}
 			},
 			{
-				"name": "Get_Log_Analytics_copy1",
+				"name": "Get_Log_Analytics",
 				"type": "Copy",
 				"dependsOn": [
 					{
@@ -147,7 +147,7 @@
 							},
 							{
 								"source": {
-									"path": "$['$[6]']"
+									"path": "$[6]"
 								},
 								"sink": {
 									"name": "$['AADClientID']",
@@ -156,7 +156,7 @@
 							},
 							{
 								"source": {
-									"path": "$['$[7]']"
+									"path": "$[7]"
 								},
 								"sink": {
 									"name": "$['QueryTimeRangeStart']",
@@ -165,7 +165,7 @@
 							},
 							{
 								"source": {
-									"path": "$['$[8]']"
+									"path": "$[8]"
 								},
 								"sink": {
 									"name": "$['QueryTimeRangeEnd']",
@@ -174,7 +174,7 @@
 							},
 							{
 								"source": {
-									"path": "$['$[9]']"
+									"path": "$[9]"
 								},
 								"sink": {
 									"name": "$['QueryText']",
@@ -183,7 +183,7 @@
 							},
 							{
 								"source": {
-									"path": "$['$[10]']"
+									"path": "$[10]"
 								},
 								"sink": {
 									"name": "$['RequestClientApp']",
@@ -192,7 +192,7 @@
 							},
 							{
 								"source": {
-									"path": "$['$[11]']"
+									"path": "$[11]"
 								},
 								"sink": {
 									"name": "$['RequestTarget']",
@@ -201,7 +201,7 @@
 							},
 							{
 								"source": {
-									"path": "$['$[12]']"
+									"path": "$[12]"
 								},
 								"sink": {
 									"name": "$['RequestContext']",
@@ -210,7 +210,7 @@
 							},
 							{
 								"source": {
-									"path": "$['$[13]']"
+									"path": "$[13]"
 								},
 								"sink": {
 									"name": "$['RequestContextFilters']",
@@ -219,7 +219,7 @@
 							},
 							{
 								"source": {
-									"path": "$['$[14]']"
+									"path": "$[14]"
 								},
 								"sink": {
 									"name": "$['ResponseCode']",
@@ -228,7 +228,7 @@
 							},
 							{
 								"source": {
-									"path": "$['$[15]']"
+									"path": "$[15]"
 								},
 								"sink": {
 									"name": "$['ResponseRowCount']",
@@ -237,7 +237,7 @@
 							},
 							{
 								"source": {
-									"path": "$['$[16]']"
+									"path": "$[16]"
 								},
 								"sink": {
 									"name": "$['ResposneDurationMS']",
@@ -246,7 +246,7 @@
 							},
 							{
 								"source": {
-									"path": "$['$[17]']"
+									"path": "$[17]"
 								},
 								"sink": {
 									"name": "$['StatsCPUTimeMs']",
@@ -255,16 +255,16 @@
 							},
 							{
 								"source": {
-									"path": "$['$[18]']"
+									"path": "$[18]"
 								},
 								"sink": {
 									"name": "$['StatsDataProcessedKB']",
-									"type": "Int64"
+									"type": "Single"
 								}
 							},
 							{
 								"source": {
-									"path": "$['$[19]']"
+									"path": "$[19]"
 								},
 								"sink": {
 									"name": "$['StatsDataProcessedStart']",
@@ -273,7 +273,7 @@
 							},
 							{
 								"source": {
-									"path": "$['$[20]']"
+									"path": "$[20]"
 								},
 								"sink": {
 									"name": "$['StatsDataProcessedEnd']",
@@ -282,16 +282,25 @@
 							},
 							{
 								"source": {
-									"path": "$['$[22]']"
+									"path": "$[22]"
 								},
 								"sink": {
-									"name": "$['StatsRegionCount']",
+									"name": "$['StatsWorkspaceCount']",
 									"type": "Int64"
 								}
 							},
 							{
 								"source": {
-									"path": "$['$[23]']"
+									"path": "$[23]"
+								},
+								"sink": {
+									"name": "$['StatsRegionCount']",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$[24]"
 								},
 								"sink": {
 									"name": "$['SourceSystem']",
@@ -300,7 +309,7 @@
 							},
 							{
 								"source": {
-									"path": "$['$[24]']"
+									"path": "$[25]"
 								},
 								"sink": {
 									"name": "$['type']",
@@ -308,7 +317,7 @@
 								}
 							}
 						],
-						"collectionReference": "$['table'][0]['rows']"
+						"collectionReference": "$['tables'][0]['rows']"
 					}
 				},
 				"inputs": [
