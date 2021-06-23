@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "GetBearerToken",
+				"name": "Authorization",
 				"type": "WebActivity",
 				"dependsOn": [],
 				"policy": {
@@ -24,11 +24,11 @@
 				}
 			},
 			{
-				"name": "Web1",
+				"name": "GetBearerToken",
 				"type": "WebActivity",
 				"dependsOn": [
 					{
-						"activity": "GetBearerToken",
+						"activity": "Authorization",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -56,7 +56,7 @@
 				"type": "Copy",
 				"dependsOn": [
 					{
-						"activity": "Web1",
+						"activity": "GetBearerToken",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -80,7 +80,7 @@
 						"additionalHeaders": {
 							"content-type": "application/json; charset=utf-8",
 							"Authorization": {
-								"value": "@concat('Bearer ',activity('Web1').output.access_token)",
+								"value": "@concat('Bearer ',activity('GetBearerToken').output.access_token)",
 								"type": "Expression"
 							}
 						}
