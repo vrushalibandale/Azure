@@ -69,8 +69,8 @@
 									"path": ""
 								},
 								"sink": {
-									"name": "log_id",
-									"type": "Int32"
+									"name": "Time_Generated",
+									"type": "DateTime"
 								}
 							},
 							{
