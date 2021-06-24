@@ -66,7 +66,7 @@
 						"mappings": [
 							{
 								"source": {
-									"path": ""
+									"path": "$[3]"
 								},
 								"sink": {
 									"name": "Time_Generated",
@@ -75,21 +75,69 @@
 							},
 							{
 								"source": {
-									"path": ""
+									"path": "$[4]"
+								},
+								"sink": {
+									"name": "Correlation_ID",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['tables'][0]['columns'][0]['type']"
+									"path": "$[5]"
+								},
+								"sink": {
+									"name": "AADObject_ID",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['tables'][0]['rows'][0][0]"
+									"path": "$[6]"
+								},
+								"sink": {
+									"name": "AADTenant_ID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$[8]"
+								},
+								"sink": {
+									"name": "AADClient_ID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$[9]"
+								},
+								"sink": {
+									"name": "QueryTimeRangeStart",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"path": "$[10]"
+								},
+								"sink": {
+									"name": "QueryTimeRangeEnd",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"path": "$[11]"
+								},
+								"sink": {
+									"name": "QueryText",
+									"type": "String"
 								}
 							}
 						],
-						"collectionReference": ""
+						"collectionReference": "['tables'][0]['rows']"
 					}
 				},
 				"inputs": [
