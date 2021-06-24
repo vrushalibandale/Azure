@@ -1,0 +1,66 @@
+{
+	"name": "log_sql_table",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "log_id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Time_Generated",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "Correlation_ID",
+				"type": "varchar"
+			},
+			{
+				"name": "AADObject_ID",
+				"type": "varchar"
+			},
+			{
+				"name": "AADTenant_ID",
+				"type": "varchar"
+			},
+			{
+				"name": "AADClient_ID",
+				"type": "varchar"
+			},
+			{
+				"name": "QueryTimeRangeStart",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "QueryTimeRangeEnd",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "QueryText",
+				"type": "varchar"
+			},
+			{
+				"name": "TimeStamp",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "log_data"
+		}
+	}
+}
